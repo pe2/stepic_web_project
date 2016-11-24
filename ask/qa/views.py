@@ -9,9 +9,10 @@ def oneQuestion(request,pk):
 	ret = "<h1>" + pk + "</h1>"
 	return HttpResponse(ret)
 
-def popular(request,page_num):
-	ret = page_num
-	return HttpResponse(ret)
+def popular(request):
+	page = request.GET.get('page')
+	return HttpResponse(page)
 
-def index(request,page_num):
-	return HttpResponse(page_num)
+def index(request):
+	page = request.GET.get('page')
+	return HttpResponse(page)
