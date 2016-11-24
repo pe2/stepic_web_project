@@ -5,3 +5,4 @@ sudo /etc/init.d/gunicorn restart
 sudo /etc/init.d/mysql start
 git config --global user.email "telezhkin@gmail.com"
 git config --global user.name "Alex M. Telezhkin"
+mysql -u root -e "create database stepic"
