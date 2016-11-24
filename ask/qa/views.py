@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
+from django.shortcuts import render
+
 def test(request, *args, **kwargs):
 	return HttpResponse('OK')
 
@@ -14,5 +16,6 @@ def popular(request):
 	return HttpResponse(page)
 
 def index(request):
-	page = request.GET.get('page')
-	return HttpResponse(page)
+#	page = request.GET.get('page')
+#	return HttpResponse(page)a
+	QuestionManager.new()
