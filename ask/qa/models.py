@@ -3,8 +3,10 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class QuestionManager(models.Manager):
-	def new():
-		print "test123"	
+	def new(self, page):
+		body = "test123" + page + " op op"	
+		return body
+	
 	def popular():
 		pass
 

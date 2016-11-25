@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from qa.models import QuestionManager
 
 # Create your views here.
 from django.http import HttpResponse
@@ -18,4 +19,6 @@ def popular(request):
 def index(request):
 #	page = request.GET.get('page')
 #	return HttpResponse(page)a
-	QuestionManager.new()
+	qa=QuestionManager()
+	strToRet = qa.new(request.GET.get('page'))
+	return HttpResponse(strToRet)
