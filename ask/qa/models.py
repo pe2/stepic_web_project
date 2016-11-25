@@ -16,11 +16,14 @@ class Question(models.Model):
 	text=models.TextField()
 	added_at=models.DateField(blank=True, auto_now_add=True)
 	rating=models.IntegerField(default=0)
-	author=models.ForeignKey(User, unique=True)
+	#author=models.ForeignKey(User)
+	author=models.OneToOneField(User)
 	likes=models.ManyToManyField(User, related_name="likes_set")
 
 class Answer(models.Model):
 	text=models.TextField()
 	added_at=models.DateField(blank=True, auto_now_add=True)
-	question=models.ForeignKey(Question, unique=True)
-	author=models.OneToOneField(User)
+	#question=models.ForeignKey(Question, unique=True)
+	question=models.OneToOneField(Question)
+	#author=models.OneToOneField(User)
+	author=models.ForeignKey(User)
