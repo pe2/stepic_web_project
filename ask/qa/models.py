@@ -1,11 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db import connection
+from django.shortcuts import render
 
 # Create your models here.
 class QuestionManager(models.Manager):
 	def new(self, page):
-		body = "test123" + page + " op op"	
-		return body
+#		body = "test > " + page + " op op"	
+#		cur = connection.cursor()
+#		cur.execute("select * from qa_question");
+#		for question in cur.fetchall():
+#			text, rating = question
+		questions = Question.objects.all()
+		questions.filter(id__gt=10)	
+		return render(self, 'qa/index.html', { 'page' : page, })
 	
 	def popular():
 		pass
